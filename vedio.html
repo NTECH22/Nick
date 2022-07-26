@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="vedio.css" />
+  </head>
+  <body>
+    <section class="header">
+      <h1>LOTS VIDEO GALLERY</h1>
+    </section>
+
+    <div class="container">
+      <div class="main-vedio">
+        <div class="vedio">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">1. vedio title</h3>
+        </div>
+      </div>
+
+      <div class="vedio-list">
+        <div class="vid" active>
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">1. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">2. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">3. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">4. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">5. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">6. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls autoplay></video>
+          <h3 class="title">7. vedio title</h3>
+        </div>
+        <div class="vid">
+          <video src="vee.mkv" controls unmuted autoplay></video>
+          <h3 class="title">8. vedio title</h3>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let listVedio = document.querySelectorAll(" .vedio-list .vid");
+      let mainVedio = document.querySelector(".main-vedio video");
+      let title = document.querySelector("main-vedio .title");
+
+      listVedio.forEach((video) => {
+        video.onclick = () => {
+          listVedio.forEach((vid) => vid.classList.remove("active"));
+          video.classList.add("active");
+          if (video.classList.contains("active")) {
+            let src = video.children[0].getAttribute("src");
+            mainVedio.src = src;
+            let text = video.children[1].innerHTML;
+            title.innerHTML = text;
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

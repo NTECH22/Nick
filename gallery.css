@@ -1,0 +1,269 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body{
+	 overflow-x: hidden;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),url(draw.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+}
+.header {
+	height: 50vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.0)),
+		url(img/ga7.jpg);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	background-attachment: fixed;
+}
+h1 {
+	color: rgb(248, 244, 244);
+	font-size: 40px;
+	font-weight: bolder;
+	text-align: center;
+	padding-top: 10%;
+}
+input{
+	display: none;
+}
+.container{
+	width: 100%;
+	text-align: center;
+}
+
+p{
+	margin-top: 3rem;
+	margin-right: auto;
+	margin-left: auto;
+	width: 50%;
+	margin-bottom: 2rem;
+	color: ghostwhite;
+	font-size: 23px;
+}
+
+.top-content{
+	background-color: lightgray;
+	width: 90%;
+	margin: 0 auto 20px auto;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px lightgray;
+}
+.top-content a{
+  text-decoration: none;
+  color: royalblue;
+}
+h3{
+	height: 100%;
+	background-color: royalblue;
+	line-height: 60px;
+	padding: 0 50px;
+	color: white;
+}
+label{
+	display: inline-block;
+	height: 100%;
+	margin: 0 20px;
+	line-height: 70px;
+	font-size: 30px;
+	color: gray;
+	cursor: pointer	;
+	transition: color 0.1s;
+}
+label:hover{
+	color: black;
+}
+.photo-gallery{
+	width: 90%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+}
+.pic{
+   position: relative;
+   height: 230px; 
+}
+.pic img{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	object-fit: cover;
+}
+.pic::before{
+	content: "PHOTO GALLERY";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:white ;
+	font-size: 22px;
+	font-weight: bold;
+	width: 100%;
+	margin-top:-100px ;
+	opacity: 0;
+	transition: 0.3s;
+	transition-delay: .2s;
+	z-index: 1;
+}
+.pic:after{
+	content: "";
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-radius: 10px;
+	height: 0;
+	background-color: rgb(0, 0, 0.4);
+	transition: 0.3s;
+}
+.pic:hover::after{
+  margin-top: 0;
+  opacity: 1;
+}
+#checke1:checked .container .photo-gallery .pic{
+	opacity: 1;
+	transform: scale(1);
+	position: relative;
+}
+#check2:checked ~ .container .photo-gallery .indiv{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+ transition: 0s;
+}
+#check2:checked ~ .container .photo-gallery .wed, 
+#check2:checked ~ .container .photo-gallery .gal,
+#check2:checked ~ .container .photo-gallery .party{
+  opacity: 0;
+  transform: scale(0) ;
+  position: absolute;
+  transition: 0s;
+}
+#check3:checked ~ .container .photo-gallery .gal{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+  
+}
+#check3:checked ~ .container .photo-gallery .wed, 
+#check3:checked ~ .container .photo-gallery .indiv,
+#check3:checked ~ .container .photo-gallery .party{
+  opacity: 0;
+  transform: scale(0) ;
+  position: absolute;
+  transition: 0s;
+}
+#check4:checked ~ .container .photo-gallery .wed{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+
+}
+#check4:checked ~ .container .photo-gallery .indiv, 
+#check4:checked ~ .container .photo-gallery .gal,
+#check4:checked ~ .container .photo-gallery .party{
+  opacity: 0;
+  transform: scale(0) ;
+  position: absolute;
+  transition: 0s;
+}
+#check5:checked ~ .container .photo-gallery .party{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+  
+}
+#check5:checked ~ .container .photo-gallery .wed, 
+#check5:checked ~ .container .photo-gallery .gal,
+#check5:checked ~ .container .photo-gallery .indiv{
+  opacity: 0;
+  transform: scale(0) ;
+  position: absolute;
+  transition: 0s;
+}
+ .button{
+ 	margin-top: 3rem;
+ 	margin-bottom: 3rem;
+ 	display: inline-block;
+ 	padding: 2rem 2rem;
+ 	background: #fc035e;
+ 	font-size: 2.5rem;
+ 	text-decoration: none;
+  font-weight: bolder;
+ 	color: white;
+ 	border-radius: 	15px;
+ 	transition:background 0.5s ;
+ }
+ .button:hover, 
+.button:active{
+  background-color:#058229 ;
+}
+
+/* responsiveness styling for the gallery*/
+@media(max-width: 700px){
+  .header h1{
+      font-size: 25px;
+      margin: 40px 0;
+	  padding-top: 10%; 
+  }
+  .dis{
+	width: 70%;
+	margin-bottom: 2rem;
+	font-size: 30px;
+}
+  .top-content{
+  background-color: lightgray;
+  width: 97%;
+  margin: 0 auto 10px auto;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 1.5px 1.5px 2.5px lightgray;
+}
+.top-content h3{
+  height: 100%;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0 10px;
+}
+label{
+  display: inline-block;
+  height: 100%;
+  margin: 0 1px;
+  line-height: 30px;
+  font-size: 14px;
+  color: gray;
+  cursor: pointer ;
+  transition: color 0.5s;
+}
+.photo-gallery{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+}
+.pic{
+   position: relative;
+   height: 115px;
+   border-radius: 10px;
+   box-shadow: 1.5px 1.5px 2.5px lightgray;
+   cursor: pointer;
+   transition: 0.5s;
+}
+p{
+	font-size: 20px;
+}
+}
